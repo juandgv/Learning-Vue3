@@ -1,12 +1,9 @@
 <template>
- <Contador />
- <TaskList />
+<MainView />
 </template>
 
 <script setup>
-// import Contador from './components/MiContador.vue';
-import TaskList from './components/TaskList.vue';
-
+import MainView from './views/MainView.vue';
 </script>
 
 
