@@ -4,12 +4,12 @@
     <Form :validation-schema="schema" @submit="onSubmit">
       <div class="form">
         <label for="name">Name:</label>
-        <Field type="text" name="name" id="name" placeholder="Enter your name" />
+        <Field v-model="name" type="text" name="name" id="name" placeholder="Enter your name" />
         <ErrorMessage name="name" class="error" />
       </div>
       <div class="form">
         <label for="email">Email:</label>
-        <Field type="email" name="email" placeholder="Enter your email" />
+        <Field v-model="email" type="email" name="email" placeholder="Enter your email" />
         <ErrorMessage name="email" class="error" />
       </div>
       <div class="form">
@@ -22,10 +22,17 @@
 <script setup>
 import { Form, Field, ErrorMessage } from 'vee-validate'
 import { schema } from '../schemas/validationSchema'
+import { useRegisterStore } from '../stores/registerStore'
+import { ref } from 'vue'
 
-const onSubmit = (values) => {
-  console.log('Form submitted with values:', values)
-  // Here you can handle the form submission, e.g., send data to an API
+const registerStore = useRegisterStore()
+
+const name = ref('')
+const email = ref('')
+
+const onSubmit = () => {
+  registerStore.saveRegister(name.value, email.value)
+  console.log('Form submitted with values:')
 }
 </script>
 
