@@ -1,25 +1,22 @@
 <template>
-    <div class="container">
-        <Sidebar />
-        <div class="content">
-            <router-view />
-        </div>
+  <div class="container">
+    <Sidebar />
+    <div class="content">
+      <router-view />
     </div>
+  </div>
 </template>
 
 <script setup>
-import Sidebar from '@/components/Sidebar.vue';
+import Sidebar from '@/components/Sidebar.vue'
 </script>
 
 <style scoped>
-
 .container {
-    display: flex;
-   
+  display: flex;
 }
 .content {
-    flex: 1;
-    padding: 20px;
-
+  flex: 1;
+  padding: 20px;
 }
 </style>
